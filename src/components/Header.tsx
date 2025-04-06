@@ -2,6 +2,7 @@ import { Box, Flex, Heading, Spacer, IconButton, Menu, Portal } from "@chakra-ui
 import { useAuth } from "../hooks/useAuth";
 import { Link as RouterLink } from "react-router-dom";
 import LinkButton from "./LinkButton";
+import { FaBars } from "react-icons/fa6";
 
 export default function Header() {
   const { user, logout } = useAuth();
@@ -17,7 +18,14 @@ export default function Header() {
         {user ? (
           <Menu.Root>
             <Menu.Trigger colorScheme="whiteAlpha" aria-label="Menu">
-              <IconButton>MENU</IconButton>
+              <IconButton
+                aria-label="Menu"
+                variant="ghost"
+                color="white"
+                _hover={{ bg: "whiteAlpha.300" }}
+              >
+                <FaBars />
+              </IconButton>
             </Menu.Trigger>
             <Portal>
               <Menu.Positioner>
