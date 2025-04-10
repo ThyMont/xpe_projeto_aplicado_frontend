@@ -1,8 +1,21 @@
-import { Box, Flex, Heading, Spacer, IconButton, Menu, Portal, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Heading,
+  Spacer,
+  IconButton,
+  Menu,
+  MenuTrigger,
+  MenuContent,
+  MenuItem,
+  MenuPositioner,
+  Portal,
+  Text,
+} from "@chakra-ui/react";
+import { FaBars } from "react-icons/fa6";
 import { useAuth } from "../hooks/useAuth";
 import { Link as RouterLink } from "react-router-dom";
 import LinkButton from "./LinkButton";
-import { FaBars } from "react-icons/fa6";
 
 export default function Header() {
   const { user, logout } = useAuth();
@@ -18,31 +31,35 @@ export default function Header() {
         {user ? (
           <>
             <Text mr={4}>Olá, {user.nome}!</Text>
+
             <Menu.Root>
-              <Menu.Trigger colorScheme="whiteAlpha" aria-label="Menu">
-                <IconButton
-                  aria-label="Menu"
-                  variant="ghost"
-                  color="white"
-                  _hover={{ bg: "whiteAlpha.300" }}
-                >
-                  <FaBars />
-                </IconButton>
-              </Menu.Trigger>
+              <MenuTrigger
+                as={IconButton}
+                aria-label="Menu"
+                color="white"
+                bg="primaryLight"
+                _hover={{ bg: "whiteAlpha.300" }}
+              >
+                <FaBars />
+              </MenuTrigger>
+
               <Portal>
-                <Menu.Positioner>
-                  <Menu.Content color="black">
-                    <Menu.Item value="dashboard">
+                <MenuPositioner>
+                  <MenuContent color="black">
+                    <MenuItem value="dashboard">
                       <RouterLink to="/dashboard">Dashboard</RouterLink>
-                    </Menu.Item>
-                    <Menu.Item value="history">
+                    </MenuItem>
+                    <MenuItem value="history">
                       <RouterLink to="/history">Histórico</RouterLink>
-                    </Menu.Item>
-                    <Menu.Item value="sair" onClick={logout}>
+                    </MenuItem>
+                    <MenuItem value="consumo">
+                      <RouterLink to="/consumo">Registrar Consumo</RouterLink>
+                    </MenuItem>
+                    <MenuItem value="sair" onClick={logout}>
                       Sair
-                    </Menu.Item>
-                  </Menu.Content>
-                </Menu.Positioner>
+                    </MenuItem>
+                  </MenuContent>
+                </MenuPositioner>
               </Portal>
             </Menu.Root>
           </>

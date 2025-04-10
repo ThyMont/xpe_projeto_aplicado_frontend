@@ -39,7 +39,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setUser(user);
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
-      navigate("/dashboard");
+      navigate("/consumo");
     } catch (error: any) {
       console.error("Erro ao fazer login:", error);
       alert("Login falhou. Verifique seu e-mail e senha.");

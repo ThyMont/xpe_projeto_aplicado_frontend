@@ -6,6 +6,7 @@ import Dashboard from "../pages/Dashboard";
 import NotFound from "../pages/NotFound";
 import PrivateRoute from "./PrivateRoute";
 import Landing from "../pages/Landing";
+import RegisterConsumption from "@/pages/RegisterConsumption";
 
 export default function AppRoutes() {
   return (
@@ -16,6 +17,7 @@ export default function AppRoutes() {
       <Route element={<PrivateRoute />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/history" element={<History />} />
+        <Route path="/consumo" element={<RegisterConsumption />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
