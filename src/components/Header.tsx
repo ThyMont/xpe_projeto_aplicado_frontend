@@ -55,6 +55,9 @@ export default function Header() {
                     <MenuItem value="consumo">
                       <RouterLink to="/consumo">Registrar Consumo</RouterLink>
                     </MenuItem>
+                    <MenuItem value="settings">
+                      <RouterLink to="/configuracoes">Configurações</RouterLink>
+                    </MenuItem>
                     <MenuItem value="sair" onClick={logout}>
                       Sair
                     </MenuItem>
