@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import Landing from "../pages/Landing";
 import RegisterConsumption from "../pages/RegisterConsumption";
 import Settings from "../pages/Settings";
+import About from "@/pages/About";
 
 export default function AppRoutes() {
   return (
@@ -15,6 +16,7 @@ export default function AppRoutes() {
       <Route path="/" element={<Landing />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/about" element={<About />} />
       <Route element={<PrivateRoute />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/history" element={<History />} />
