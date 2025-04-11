@@ -2,9 +2,11 @@ import { Box, Heading, Stack, Text, Link, VStack } from "@chakra-ui/react";
 import Layout from "../components/Layout";
 import LinkButton from "../components/LinkButton";
 import { useAuth } from "@/hooks/useAuth";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 
 export default function About() {
   const { user } = useAuth();
+
   return (
     <Layout>
       <Stack spaceY={6}>
@@ -12,42 +14,49 @@ export default function About() {
           Sobre o Hydrapp 💧
         </Heading>
 
-        <Text>
+        <Text textAlign="center">
           O <strong>Hydrapp</strong> é uma aplicação desenvolvida como parte do projeto final do
-          curso de <strong>Desenvolvimento Full Stack da XP Educação</strong>. A ideia surgiu a
+          curso de <strong>Desenvolvimento Full Stack da Faculdade XPE</strong>. A ideia surgiu a
           partir de uma necessidade pessoal de manter uma hidratação adequada no dia a dia, de forma
           prática e motivadora.
         </Text>
 
-        <Text>
+        <Text textAlign="center">
           Com um visual <strong>limpo e simples de usar</strong>, o Hydrapp permite que qualquer
           pessoa personalize sua meta de ingestão de água, selecione o recipiente que usa
           diariamente e acompanhe sua evolução ao longo do tempo.
         </Text>
 
-        <Text>
+        <Text textAlign="center">
           O projeto é um exemplo de como a tecnologia pode ajudar na construção de hábitos saudáveis
           — sem complicações.
         </Text>
 
-        <Box>
+        <Box textAlign="center">
           <Text fontWeight="bold" mb={2}>
             👨‍💻 Desenvolvido por Thyago Monteiro
           </Text>
-          <Stack direction="row" spaceX={4}>
+          <Stack direction="row" justify="center" spaceX={4}>
             <Link
               href="https://github.com/ThyMont"
               color="blue.500"
               _hover={{ textDecoration: "underline" }}
+              display="flex"
+              alignItems="center"
+              gap={2}
             >
-              GitHub
+              <FaGithub /> GitHub
             </Link>
+
             <Link
               href="https://www.linkedin.com/in/thyagomonteiro"
               color="blue.500"
               _hover={{ textDecoration: "underline" }}
+              display="flex"
+              alignItems="center"
+              gap={2}
             >
-              LinkedIn
+              <FaLinkedin /> LinkedIn
             </Link>
           </Stack>
         </Box>
