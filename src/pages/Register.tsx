@@ -63,8 +63,6 @@ export default function Register() {
 
   return (
     <Layout>
-      <Header />
-
       <Container centerContent mt={12}>
         <Box
           as="form"
