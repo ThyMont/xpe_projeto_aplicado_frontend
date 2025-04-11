@@ -46,18 +46,18 @@ export default function Header() {
               <Portal>
                 <MenuPositioner>
                   <MenuContent color="black">
-                    <MenuItem value="dashboard">
-                      <RouterLink to="/dashboard">Dashboard</RouterLink>
-                    </MenuItem>
-                    <MenuItem value="history">
-                      <RouterLink to="/history">Histórico</RouterLink>
-                    </MenuItem>
-                    <MenuItem value="consumo">
-                      <RouterLink to="/consumo">Registrar Consumo</RouterLink>
-                    </MenuItem>
-                    <MenuItem value="settings">
-                      <RouterLink to="/configuracoes">Configurações</RouterLink>
-                    </MenuItem>
+                    <RouterLink to="/dashboard">
+                      <MenuItem value="dashboard">Dashboard</MenuItem>
+                    </RouterLink>
+                    <RouterLink to="/history">
+                      <MenuItem value="history">Histórico</MenuItem>
+                    </RouterLink>
+                    <RouterLink to="/consumo">
+                      <MenuItem value="consumo">Registrar Consumo</MenuItem>
+                    </RouterLink>
+                    <RouterLink to="/configuracoes">
+                      <MenuItem value="settings">Configurações</MenuItem>
+                    </RouterLink>
                     <MenuItem value="sair" onClick={logout}>
                       Sair
                     </MenuItem>
