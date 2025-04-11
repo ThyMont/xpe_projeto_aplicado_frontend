@@ -13,6 +13,7 @@ import { useState } from "react";
 import Header from "../components/Header";
 import api from "../services/api";
 import { toaster } from "@/components/ui/toaster";
+import LinkButton from "@/components/LinkButton";
 
 export default function Settings() {
   const [meta, setMeta] = useState("");
@@ -147,6 +148,10 @@ export default function Settings() {
                 Salvar recipiente
               </Button>
             </Box>
+
+            <LinkButton to="/dashboard" variant="outline" colorScheme="blue">
+              Voltar ao Painel
+            </LinkButton>
           </VStack>
         </Box>
       </Container>

@@ -1,8 +1,9 @@
-import { Box, Button, Container, Heading, Text, Spinner, VStack } from "@chakra-ui/react";
+import { Box, Button, Container, Heading, Text, Spinner, VStack, Progress } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import { toaster } from "@/components/ui/toaster";
 import api from "../services/api";
+import LinkButton from "../components/LinkButton";
 
 interface Recipiente {
   id: number;
@@ -13,6 +14,7 @@ interface Recipiente {
 export default function RegisterConsumption() {
   const [recipiente, setRecipiente] = useState<Recipiente | null>(null);
   const [meta, setMeta] = useState(0);
+  const [consumoHoje, setConsumoHoje] = useState(0);
   const [percentual, setPercentual] = useState(0);
   const [loading, setLoading] = useState(true);
   const [sending, setSending] = useState(false);
@@ -26,12 +28,13 @@ export default function RegisterConsumption() {
 
       setRecipiente(res.data.recipiente_padrao);
       setMeta(meta);
+      setConsumoHoje(consumo);
       setPercentual(progresso);
     } catch (err) {
       console.log(err);
       toaster.create({
-        title: "Erro ao carregar recipiente",
-        description: "Não foi possível obter o recipiente padrão.",
+        title: "Erro ao carregar dados",
+        description: "Não foi possível obter os dados do painel.",
         type: "error",
         duration: 3000,
       });
@@ -52,13 +55,7 @@ export default function RegisterConsumption() {
         duration: 3000,
       });
 
-      const res = await api.get("/api/dashboard");
-      const consumo = res.data.consumo_hoje;
-      const meta = res.data.meta_diaria;
-      const progresso = meta > 0 ? Math.round((consumo / meta) * 100) : 0;
-
-      setMeta(meta);
-      setPercentual(progresso);
+      await carregarDashboard();
     } catch {
       toaster.create({
         title: "Erro ao registrar consumo",
@@ -121,13 +118,32 @@ export default function RegisterConsumption() {
         <Button
           onClick={registrarConsumo}
           colorScheme="blue"
+          size="lg"
           loading={sending}
           loadingText="Registrando..."
         >
           Beber {recipiente.volume_ml}ml
         </Button>
 
+        <Box w="100%" textAlign="center">
+          <Text fontSize="sm" mb={2}>
+            Ingerido hoje: <strong>{consumoHoje}ml</strong> de <strong>{meta}ml</strong>
+          </Text>
+          <Progress.Root size="md" borderRadius="md" value={percentual}>
+            <Progress.Track>
+              <Progress.Range />
+            </Progress.Track>
+          </Progress.Root>
+          <Text mt={1} fontSize="sm" textAlign="right">
+            {percentual}%
+          </Text>
+        </Box>
+
         {renderMensagemProgresso()}
+
+        <LinkButton to="/dashboard" variant="outline" colorScheme="blue">
+          Voltar ao Painel
+        </LinkButton>
       </VStack>
     );
   };
@@ -139,7 +155,6 @@ export default function RegisterConsumption() {
   return (
     <>
       <Header />
-
       <Container centerContent mt={12}>
         <Box w="100%" maxW="md" p={6} borderWidth={1} borderRadius="lg" boxShadow="md">
           <Heading size="md" mb={4} textAlign="center">
