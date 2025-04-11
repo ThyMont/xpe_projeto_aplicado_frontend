@@ -1,9 +1,10 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://hydrapp-api.up.railway.app",
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
+// Interceptor de requisição: adiciona o token
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   if (token) {
@@ -11,5 +12,17 @@ api.interceptors.request.use((config) => {
   }
   return config;
 });
+
+// Interceptor de resposta: trata erros de autenticação
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      localStorage.clear();
+      window.location.href = "/";
+    }
+    return Promise.reject(error);
+  }
+);
 
 export default api;
