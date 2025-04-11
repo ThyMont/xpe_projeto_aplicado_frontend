@@ -24,7 +24,7 @@ export default function Header() {
     <Box bg="primary" color="white" px={6} py={4} shadow="md">
       <Flex align="center">
         <Heading size="md">
-          <RouterLink to="/">Hydrapp</RouterLink>
+          <RouterLink to={user ? "/dashboard" : "/"}>Hydrapp</RouterLink>
         </Heading>
         <Spacer />
 
