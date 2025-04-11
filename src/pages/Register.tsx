@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import { toaster } from "@/components/ui/toaster";
-import Header from "../components/Header";
 import Layout from "@/components/Layout";
 
 export default function Register() {
