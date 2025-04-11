@@ -17,7 +17,7 @@ export default function Landing() {
         </Heading>
 
         <Text fontSize="lg" mb={6}>
-          Monitore sua ingestão diária de água, mantenha-se hidratado e alcance suas metas de saúde.
+          Monitore seu consumo diário de água, mantenha-se hidratado e alcance suas metas de saúde.
         </Text>
 
         <Text fontSize="md" maxW="lg" mx="auto" mb={10}>

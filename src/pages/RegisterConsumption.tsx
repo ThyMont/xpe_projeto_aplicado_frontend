@@ -1,4 +1,14 @@
-import { Box, Button, Container, Heading, Text, Spinner, VStack, Progress } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Container,
+  Heading,
+  Text,
+  Spinner,
+  VStack,
+  Progress,
+  Link,
+} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { toaster } from "@/components/ui/toaster";
 import api from "../services/api";
@@ -140,6 +150,13 @@ export default function RegisterConsumption() {
         </Box>
 
         {renderMensagemProgresso()}
+
+        <Text fontSize="sm" textAlign="center" color="gray.600">
+          Deseja alterar sua meta ou recipiente?{" "}
+          <Link href="/settings" colorScheme="blue">
+            Acessar Configurações
+          </Link>
+        </Text>
 
         <LinkButton to="/dashboard" variant="outline" colorScheme="blue">
           Voltar ao Painel
