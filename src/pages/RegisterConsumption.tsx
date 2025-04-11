@@ -153,7 +153,7 @@ export default function RegisterConsumption() {
 
         <Text fontSize="sm" textAlign="center" color="gray.600">
           Deseja alterar sua meta ou recipiente?{" "}
-          <Link href="/settings" colorScheme="blue">
+          <Link href="/configuracoes" colorScheme="blue">
             Acessar Configurações
           </Link>
         </Text>
