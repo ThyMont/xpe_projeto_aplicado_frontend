@@ -1,9 +1,9 @@
 import { Box, Button, Container, Heading, Text, Spinner, VStack, Progress } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import Header from "../components/Header";
 import { toaster } from "@/components/ui/toaster";
 import api from "../services/api";
 import LinkButton from "../components/LinkButton";
+import Layout from "@/components/Layout";
 
 interface Recipiente {
   id: number;
@@ -153,8 +153,7 @@ export default function RegisterConsumption() {
   }, []);
 
   return (
-    <>
-      <Header />
+    <Layout>
       <Container centerContent mt={12}>
         <Box w="100%" maxW="md" p={6} borderWidth={1} borderRadius="lg" boxShadow="md">
           <Heading size="md" mb={4} textAlign="center">
@@ -164,6 +163,6 @@ export default function RegisterConsumption() {
           {renderConteudo()}
         </Box>
       </Container>
-    </>
+    </Layout>
   );
 }

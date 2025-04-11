@@ -2,7 +2,7 @@ import { Box, Button, Container, Heading, Input, Stack, Field, Text, Link } from
 import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { toaster } from "@/components/ui/toaster";
-import Header from "../components/Header";
+import Layout from "@/components/Layout";
 
 export default function Login() {
   const { login } = useAuth();
@@ -31,9 +31,7 @@ export default function Login() {
   };
 
   return (
-    <>
-      <Header />
-
+    <Layout>
       <Container centerContent mt={12}>
         <Box
           as="form"
@@ -88,6 +86,6 @@ export default function Login() {
           </Stack>
         </Box>
       </Container>
-    </>
+    </Layout>
   );
 }

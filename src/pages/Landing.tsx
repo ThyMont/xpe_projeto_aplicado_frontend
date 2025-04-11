@@ -1,8 +1,12 @@
 import { Box, Heading, Stack, Text, VStack } from "@chakra-ui/react";
 import LinkButton from "../components/LinkButton";
 import Header from "../components/Header";
+import Footer from "@/components/Footer";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function Landing() {
+  const { user } = useAuth();
+
   return (
     <>
       <Header />
@@ -54,14 +58,24 @@ export default function Landing() {
         </VStack>
 
         <Stack direction="row" justify="center" spaceX={4}>
-          <LinkButton to="/register" colorScheme="blue">
-            Criar Conta
-          </LinkButton>
-          <LinkButton to="/login" variant="outline" colorScheme="blue">
-            Entrar
-          </LinkButton>
+          {user ? (
+            <LinkButton to="/dashboard" colorScheme="blue">
+              Ir para o Painel
+            </LinkButton>
+          ) : (
+            <>
+              <LinkButton to="/register" colorScheme="blue">
+                Criar Conta
+              </LinkButton>
+              <LinkButton to="/login" variant="outline" colorScheme="blue">
+                Entrar
+              </LinkButton>
+            </>
+          )}
         </Stack>
       </Box>
+
+      <Footer />
     </>
   );
 }

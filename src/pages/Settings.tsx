@@ -10,10 +10,10 @@ import {
   Field,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import Header from "../components/Header";
 import api from "../services/api";
 import { toaster } from "@/components/ui/toaster";
 import LinkButton from "@/components/LinkButton";
+import Layout from "@/components/Layout";
 
 export default function Settings() {
   const [meta, setMeta] = useState("");
@@ -91,8 +91,7 @@ export default function Settings() {
   };
 
   return (
-    <>
-      <Header />
+    <Layout>
       <Container centerContent mt={12}>
         <Box w="100%" maxW="md" p={6} borderWidth={1} borderRadius="lg" boxShadow="md">
           <Heading size="md" mb={6} textAlign="center">
@@ -155,6 +154,6 @@ export default function Settings() {
           </VStack>
         </Box>
       </Container>
-    </>
+    </Layout>
   );
 }

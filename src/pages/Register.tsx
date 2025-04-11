@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import { toaster } from "@/components/ui/toaster";
 import Header from "../components/Header";
+import Layout from "@/components/Layout";
 
 export default function Register() {
   const [nome, setNome] = useState("");
@@ -61,7 +62,7 @@ export default function Register() {
   };
 
   return (
-    <>
+    <Layout>
       <Header />
 
       <Container centerContent mt={12}>
@@ -136,6 +137,6 @@ export default function Register() {
           </Stack>
         </Box>
       </Container>
-    </>
+    </Layout>
   );
 }
