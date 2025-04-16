@@ -33,12 +33,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = async (email: string, senha: string) => {
     try {
       const response = await api.post("/api/auth/login", { email, senha });
-      const { token, user } = response.data;
+      const { token, refreshToken, user } = response.data;
 
       setToken(token);
       setUser(user);
       localStorage.setItem("token", token);
+      localStorage.setItem("refreshToken", refreshToken);
       localStorage.setItem("user", JSON.stringify(user));
+
       navigate("/consumo");
     } catch (error: any) {
       console.error("Erro ao fazer login:", error);
