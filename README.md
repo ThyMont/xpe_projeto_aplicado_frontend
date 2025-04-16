@@ -1,54 +1,57 @@
-# React + TypeScript + Vite
+# 💧 Hydrapp Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interface web do Hydrapp, uma aplicação para monitorar sua ingestão diária de água. Desenvolvida em **React + TypeScript + Vite**, com Chakra UI para o design e Axios para comunicação com o backend.
 
-Currently, two official plugins are available:
+## 🔥 Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Registro de consumo de água
+- Definição de metas
+- Seleção de recipiente padrão
+- Dashboard com progresso diário
+- Histórico dos últimos 7 dias
+- Autenticação e sessão protegida
+- Notificações e toasts
+- Design responsivo
 
-## Expanding the ESLint configuration
+## 🚀 Como rodar o projeto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 1. Clone o repositório
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+git clone https://github.com/ThyMont/xpe_projeto_aplicado_frontend.git
+cd xpe_projeto_aplicado_frontend
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Instale as dependências
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
 ```
+
+### 3. Configure o ambiente
+
+Crie um arquivo `.env` com:
+
+```env
+VITE_API_URL=http://localhost:3000
+```
+
+### 4. Rode a aplicação
+
+```bash
+npm run dev
+```
+
+Acesse: http://localhost:5173
+
+## ✅ Tecnologias
+
+- React + TypeScript + Vite
+- Chakra UI (v3+)
+- Axios
+- React Router
+- JWT
+
+## 📄 Licença
+
+MIT
